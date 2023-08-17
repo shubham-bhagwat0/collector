@@ -17,17 +17,17 @@ jobs:
       - name: Build benchmark
         run: |
             echo "building image"
-            cd collector/integration-tests/container/benchmark/
+            cd integration-tests/container/benchmark/
             docker buildx build --platform linux/amd64,linux/s390x,linux/ppc64le -t quay.io/rhacs-eng/benchmark .
             
       - name: Build jsonlabel
         run: |
             echo "building image"
-            cd collector/integration-tests/container/jsonlabel/
+            cd integration-tests/container/jsonlabel/
             docker buildx build --platform linux/amd64,linux/s390x,linux/ppc64le -t quay.io/rhacs-eng/jsonlabel .
             
       - name: Build schedule-curls
         run: |
             echo "building image"
-            cd collector/integration-tests/container/schedule-curls/
+            cd integration-tests/container/schedule-curls/
             docker buildx build --platform linux/amd64,linux/s390x,linux/ppc64le -t quay.io/rhacs-eng/schedule-curls .
