@@ -1,4 +1,4 @@
-name: GitHub Actions Demo - mix
+name: GHA - mix
 on: [push]
 jobs:
   build:
@@ -31,3 +31,21 @@ jobs:
             echo "building image"
             cd integration-tests/container/schedule-curls/
             docker buildx build --platform linux/amd64,linux/s390x,linux/ppc64le -t quay.io/rhacs-eng/schedule-curls .
+            
+      - name: Build process listening on ports
+        run: |
+            echo "building image"
+            cd integration-tests/container/processes-listening-on-ports/
+            docker buildx build --platform linux/amd64,linux/s390x,linux/ppc64le -t quay.io/rhacs-eng/processes-listening-on-ports .
+
+      - name: Build process containerstats
+        run: |
+            echo "building image"
+            cd integration-tests/container/containerstats/
+            docker buildx build --platform linux/amd64,linux/s390x,linux/ppc64le -t quay.io/rhacs-eng/containerstats .
+            
+      - name: Build process perf 
+        run: |
+            echo "building image"
+            cd integration-tests/container/perf/
+            docker buildx build --platform linux/amd64,linux/s390x,linux/ppc64le -t quay.io/rhacs-eng/perf .
